@@ -1,0 +1,27 @@
+@startuml
+class SentimentAnalysisSystem {
+    +trainModel()
+    +processReview(review: String)
+    +saveTokenizer(tokenizer: Tokenizer)
+}
+
+class Tokenizer {
+    +fit_on_texts(texts: List<String>)
+    +texts_to_sequences(texts: List<String>)
+}
+
+class Model {
+    +train(data: List<String>, labels: List<String>)
+    +predict(data: List<String>) : String
+}
+
+class Review {
+    +text: String
+    +getSentiment() : String
+}
+
+SentimentAnalysisSystem "1" --> "1" Tokenizer : uses
+SentimentAnalysisSystem "1" --> "1" Model : uses
+SentimentAnalysisSystem "1" --> "*" Review : processes
+
+@enduml

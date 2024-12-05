@@ -1,0 +1,18 @@
+@startuml
+actor User as U
+skinparam actorStyle awesome
+participant "Sentiment Analysis System" as System
+participant "Train Model" as TM
+participant "Process Sentiment" as PS
+participant "Save Tokenizer" as ST
+participant "Return Sentiment" as RS
+
+U -> System : Input Review
+System -> TM : Start Training
+TM -> PS : Process Sentiment
+TM -> ST : Save Tokenizer
+PS -> RS : Return Sentiment
+RS -> System : Sentiment Output
+System -> U : Sentiment Output
+
+@enduml

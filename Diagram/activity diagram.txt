@@ -1,0 +1,19 @@
+@startuml
+start
+
+:Input Review;
+
+:Tokenize Review;
+
+fork
+    :Train Model;
+    :Process Sentiment;
+    :Save Tokenizer;
+end fork
+
+:Return Sentiment;
+
+:Display Sentiment Result;
+
+stop
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+
+actor User as U
+
+rectangle "Sentiment Analysis System" {
+    (Input Review) as IR
+    (Train Model) as TM
+    (Process Sentiment) as PS
+    (Save Tokenizer) as ST
+    (Return Sentiment) as RS
+}
+
+U --> IR : Input Review
+IR --> TM : Start Training
+TM --> PS : Process Sentiment
+TM --> ST : Save Tokenizer
+PS --> RS : Return Sentiment
+RS --> U : Sentiment Output
+
+@enduml
